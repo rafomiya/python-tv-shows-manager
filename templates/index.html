@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block head %}<title>TV Show Manager</title>{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>TV Show Manager</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Added</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for tv_show in tv_shows %}
+
+            <tr>
+                <td>{{ tv_show.title }}</td>
+                <td>{{ tv_show.genre }}</td>
+                <td>{{ tv_show.release_date.strftime("%d/%m/%Y") }}</td>
+                <td>
+                    <a href="/delete/{{  tv_show.id  }}">Delete</a>
+                    <br />
+                    <a href="/update/{{  tv_show.id  }}">Update</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="clear-fix">
+        <a class="btn btn-success w-25 float-end" href="/add">Add a new TV show</a>
+    </div>
+</div>
+{% endblock %}

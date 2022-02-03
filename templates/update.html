@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block head %}<title>Update TV Show</title>{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Update TV show</h1>
+    <form action="/update/{{ tv_show.id }}" method="post">
+        <div class="row">
+            <label class="col-form-label text-end col-sm-4" for="title">Title</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" type="text" name="title" required id="title"
+                    placeholder="{{ tv_show.title }}">
+            </div>
+
+            <label class="col-form-label text-end col-sm-4" for="release-date">Release date</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" value="{{ tv_show.release_date }}" type="date" name="release-date"
+                    required id="release-date">
+            </div>
+
+            <label class="col-form-label text-end col-sm-4" for="genre">Genre</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" type="text" name="genre" required id="genre"
+                    placeholder="{{ tv_show.genre }}">
+            </div>
+
+            <div class="clear-fix">
+                <button type="submit" class="btn btn-success mt-3 w-25 float-end">Update TV show</button>
+                <a class="btn btn-link w-25 float-start" href="/">Come back</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
