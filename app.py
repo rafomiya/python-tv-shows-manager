@@ -60,7 +60,7 @@ def add():
 
 @app.route("/delete/<uuid:id>", methods=["GET"])
 def delete(id):
-    tv_show = TvShow.query.filter(TvShow.is_deleted == False).first_or_404(id)
+    tv_show = db.session.query(TvShow).get(id)
 
     try:
         tv_show.is_deleted = True
@@ -74,7 +74,7 @@ def delete(id):
 
 @app.route("/update/<uuid:id>", methods=["GET", "POST"])
 def update(id):
-    tv_show = TvShow.query.filter(TvShow.is_deleted == False).first_or_404(id)
+    tv_show = db.session.query(TvShow).get(id)
 
     if request.method == "POST":
         tv_show.title = request.form["title"]
