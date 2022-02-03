@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block head %}<title>Add TV show</title>{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Add a new TV show</h1>
+    <form action="/add" method="post">
+        <div class="row">
+            <label class="col-form-label text-end col-sm-4" for="title">Title</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" type="text" name="title" required id="title" placeholder="The Office">
+            </div>
+
+            <label class="col-form-label text-end col-sm-4" for="release-date">Release date</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" type="date" name="release-date" required id="release-date">
+            </div>
+
+            <label class="col-form-label text-end col-sm-4" for="genre">Genre</label>
+            <div class="col-sm-8 mb-3">
+                <input class="form-control col-3" type="text" name="genre" required id="genre" placeholder="Comedy">
+            </div>
+
+            <div class="clear-fix">
+                <button type="submit" class="btn btn-success mt-3 w-25 float-end">Add TV show</button>
+                <a class="btn btn-link w-25 float-start" href="/">Come back</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

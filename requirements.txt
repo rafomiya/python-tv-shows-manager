@@ -1,0 +1,14 @@
+black==21.9b0
+Flask==2.0.2
+Flask-SQLAlchemy==2.5.1
+ipython==7.22.0
+Jinja2==3.0.3
+notebook==6.3.0
+psycopg2-binary==2.9.3
+PyJWT==1.7.1
+pytest==6.2.2
+python-dotenv==0.19.2
+requests==2.22.0
+requests-unixsocket==0.2.0
+SQLAlchemy==1.4.31
+gunicorn==19.9.0
