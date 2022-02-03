@@ -13,3 +13,4 @@ requests-unixsocket==0.2.0
 SQLAlchemy==1.4.31
 typing-extensions==3.10.0.2
 urllib3==1.25.8
+gunicorn==19.9.0
