@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from urllib.parse import quote_plus
 from os import environ
-from dotenv import load_dotenv
 from sqlalchemy.dialects.postgresql import UUID
 from uuid import uuid4
-
-load_dotenv()
 
 app = Flask(__name__)
 
@@ -17,9 +13,7 @@ DB_PORT = environ["DB_PORT"]
 DB_NAME = environ["DB_NAME"]
 
 # TODO make a docker image for this application
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{DB_USER}:%s@{DB_SERVER}:{DB_PORT}/{DB_NAME}" % quote_plus(
-    DB_PASSWORD
-)
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
 
 db = SQLAlchemy(app)
 
